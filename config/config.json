@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "root",
+    "database": "parking",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "serverPort" : 8888
+  },
+  "test": {
+    "username": "postgres",
+    "password": "root",
+    "database": "parking",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "serverPort" : 8888
+  },
+  "production": {
+    "username": "postgres",
+    "password": "root",
+    "database": "parking",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "serverPort" : 8888
+  }
+}

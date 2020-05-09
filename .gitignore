@@ -1,0 +1,4 @@
+node_modules
+config/appConfig.js
+package-lock.json
+.eslintrc.json
