@@ -1,7 +1,9 @@
 const path = require('path');
 const bodyParser = require('body-parser');
 const configFile = require(path.resolve('./config/config'))[process.env.NODE_ENV];
+const Event = require(path.resolve('./core/event'));
 const express = require('express');
+const morgan = require('morgan')
 const expressRouter = express.Router();
 const app = express();
 
@@ -45,12 +47,13 @@ const setupServer = async function() {
         app.use(bodyParser.urlencoded({
             extended: true,
         }));
+        app.use(morgan(':method :url :status - :response-time ms'))
 
         await setupConfigs();
         await setupSequelize();
+        await Event.initiate();
+
         const expressRouter = await setupRoutes();
-
-
         app.use('/api/', expressRouter);
         app.listen(process.env.serverPort);
 

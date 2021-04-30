@@ -1,19 +1,19 @@
 const path = require('path');
+const Event = require(path.resolve('./core/event'));
 const Controller = require(path.resolve('./core/controller'));
 
-class HomeController {
-    constructor() {}
+class HomeController extends Controller {
+    constructor() {
+        super();
+    }
 
-    static index(req, res) {
-        try {
-            console.log('Herte')
-            return res.status(200).send('Working');
+    async index(req, res) {
+        try {            
+            return res.status(200).json('Hello World');
         } catch (error) {
-            console.err(error);
+            return this.error_handler(error, res);
         }
     }
-};
-
-module.exports = {
-    HomeController
 }
+
+module.exports = HomeController;
